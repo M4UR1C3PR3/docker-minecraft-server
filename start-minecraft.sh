@@ -93,6 +93,10 @@ if [ ! -e server.properties ]; then
     sed -i "/motd\s*=/ c motd=$MOTD" /data/server.properties
   fi
 
+  if [ -n "$PLAYERS" ]; then
+    sed -i "/max-players\s*=/ c max-players=$MOTD" /data/server.properties
+  fi
+
   if [ -n "$LEVEL" ]; then
     sed -i "/level-name\s*=/ c level-name=$LEVEL" /data/server.properties
   fi
