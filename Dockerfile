@@ -19,6 +19,9 @@ EXPOSE 25565
 COPY start.sh /start
 COPY start-minecraft.sh /start-minecraft
 
+RUN chmod +x /start
+RUN chmod +x /start-minecraft
+
 VOLUME ["/data"]
 COPY server.properties /tmp/server.properties
 WORKDIR /data
