@@ -4,7 +4,7 @@ latest snapshot. See the *Versions* section below for more information.
 
 To simply use the latest stable version, run
 
-    docker run -d -p 25565:25565 --name mc itzg/minecraft-server
+    docker run -d -p 25565:25565 --name mc m4ur1c3pr3/minecraft-server
 
 where the standard server port, 25565, will be exposed on your host machine.
 
@@ -18,7 +18,7 @@ will serve your Minecraft server on your host's port 25566 since the `-p` syntax
 
 Speaking of multiple servers, it's handy to give your containers explicit names using `--name`, such as
 
-    docker run -d -p 25565:25565 --name mc itzg/minecraft-server
+    docker run -d -p 25565:25565 --name mc m4ur1c3pr3/minecraft-server
 
 With that you can easily view the logs, stop, or re-start the container:
 
@@ -33,7 +33,7 @@ With that you can easily view the logs, stop, or re-start the container:
 
 In order to attach and interact with the Minecraft server, add `-it` when starting the container, such as
 
-    docker run -d -it -p 25565:25565 --name mc itzg/minecraft-server
+    docker run -d -it -p 25565:25565 --name mc m4ur1c3pr3/minecraft-server
 
 With that you can attach and interact at any time using
 
@@ -56,7 +56,7 @@ Mojang now requires accepting the [Minecraft EULA](https://account.mojang.com/do
 
 such as
 
-        docker run -d -it -e EULA=TRUE -p 25565:25565 --name mc itzg/minecraft-server
+        docker run -d -it -e EULA=TRUE -p 25565:25565 --name mc m4ur1c3pr3/minecraft-server
 
 ## Attaching data directory to host filesystem
 
@@ -102,7 +102,7 @@ but you can also choose to run a specific version with `-e FORGEVERSION=10.13.4.
 
     $ docker run -d -v /path/on/host:/data -e VERSION=1.7.10 \
         -e TYPE=FORGE -e FORGEVERSION=10.13.4.1448 \
-        -p 25565:25565 -e EULA=TRUE --name mc itzg/minecraft-server
+        -p 25565:25565 -e EULA=TRUE --name mc m4ur1c3pr3/minecraft-server
 
 In order to add mods, you will need to attach the container's `/data` directory
 (see "Attaching data directory to host filesystem”).
@@ -142,7 +142,7 @@ minecraft-server:
   environment:
     EULA: TRUE
 
-  image: itzg/minecraft-server
+  image: m4ur1c3pr3/minecraft-server
 
   container_name: mc
 
@@ -233,7 +233,7 @@ be configured by setting `LEVEL_TYPE` to
 Descriptions are available at the [gamepedia](http://minecraft.gamepedia.com/Server.properties).
 
 When using a level type of `FLAT` and `CUSTOMIZED`, you can further configure the world generator
-by passing [custom generator settings](http://minecraft.gamepedia.com/Superflat). 
+by passing [custom generator settings](http://minecraft.gamepedia.com/Superflat).
 **Since generator settings usually have ;'s in them, surround the -e value with a single quote, like below.**
 
 For example (just the `-e` bits):
